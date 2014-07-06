@@ -3,8 +3,8 @@
 ## Introduction
 
 This started out as an experiment in password management for terminal
-oriented users. It has since evolved into a fairly robust script that
-I've been using for a few years.
+oriented users. It has since evolved into a fairly robust bash
+function that I've been using for a few years.
 
 If used on a linux, it takes advantage of both the primary and
 secondary X-clipboards, saving the login in the primary (middle mouse
@@ -34,7 +34,7 @@ The following steps are necessary for the function to work:
 2. Create a plain text version of your password database in ```~/.password/db.txt```.
    Entries in the database are assumed to be in the form of
 
-        domain|login|password|comments|password
+        domain|login|email|comments|password
 
    but most important is that the login is in the second field and the
    password is in the last field.
@@ -43,8 +43,7 @@ The following steps are necessary for the function to work:
 
         $ ccrypt ~/.password/db.txt
 
-4. Add ```source ~/path/to/password.bash``` somewhere in your
-   ```~/.bashrc```
+4. Add ```source ~/path/to/password.bash``` somewhere in your ```~/.bashrc```.
 
 ## Dependencies
 

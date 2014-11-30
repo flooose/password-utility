@@ -104,12 +104,17 @@ EOF
     fi
     echo $DIVIDER
 
-    display_and_read_choice RESULTS
+    if [ ${#RESULTS[*]} -eq 1 ]; then
+        CHOICE[0]=0
+    else
+        display_and_read_choice RESULTS
+        echo $DIVIDER
+    fi
+
     if [ $CHOICE -gt ${#RESULTS[*]} ]; then
         echo "Invalid choice"
         return 1
     fi
-    echo $DIVIDER
 
     # Copy to clipboard
     SPACIFIED_CHOICE=$(echo ${RESULTS[${CHOICE[0]}]} | tr -t '|' ' ')

@@ -33,7 +33,6 @@
 #   - Loop with Q for quit on bad input
 #     1. prints usage/options
 #   - multi-grep
-#   - login gets copied wrong when there are spaces in domain
 #   - implement padd better
 #   - remove sed dependency
 
@@ -117,7 +116,7 @@ EOF
     fi
 
     # Copy to clipboard
-    SPACIFIED_CHOICE=$(echo ${RESULTS[${CHOICE[0]}]} | tr -t '|' ' ')
+    SPACIFIED_CHOICE=$(echo ${RESULTS[${CHOICE[0]}]} | tr -d ' ' | tr -t '|' ' ')
     builtin read -a FIELDS < <(echo $SPACIFIED_CHOICE)
     LOGIN=${FIELDS[1]}
     PASSWD=${FIELDS[-1]}
